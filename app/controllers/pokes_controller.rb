@@ -14,7 +14,7 @@ class PokesController < ApplicationController
 
   # GET /pokes/new
   def new
-    @poke = Poke.new
+    @poke = Poke.new.sort_by(:order)
   end
 
   # GET /pokes/1/edit
