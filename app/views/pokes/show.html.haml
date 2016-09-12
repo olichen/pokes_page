@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @poke.name
+%p
+  %strong Weight:
+  = @poke.weight
+%p
+  %strong Order:
+  = @poke.order
+= link_to 'Edit', edit_poke_path(@poke)
+|
+= link_to 'Back', pokes_path
