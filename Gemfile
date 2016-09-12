@@ -1,12 +1,16 @@
 source 'https://rubygems.org'
 
+# Use rest-client and json to parse data from pokeapi
 gem 'rest-client'
 gem 'json'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use bootstrap to make things prettier
 gem 'bootstrap-sass'
+# Use haml so i don't have to type as much
+gem 'haml'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
