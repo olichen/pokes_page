@@ -1,7 +1,7 @@
 require 'json'
 require 'rest-client'
 
-verbose=1
+VERBOSE=1
 
 #load a specific poke from a url
 def load_poke url
@@ -24,21 +24,28 @@ end
 response = RestClient.get('http://pokeapi.co/api/v2/pokemon/')
 pokes_list = JSON.parse(response)
 
-puts 'Loading ' + pokes_list['count'].to_s + ' Pokemon...' if verbose==1
-print 'Pokemon 1 to 20: '  if verbose==1
+puts 'Loading ' + pokes_list['count'].to_s + ' Pokemon...' if VERBOSE==1
+print 'Pokemon 1 to 20: '  if VERBOSE==1
 
 while(response) do
+  ## threaded loads don't work because the database can't handle that many calls at once
   #load each poke in a separate thread
   #join them all to prevent bombarding the api
-  thread = []
-  pokes_list['results'].map{|p| thread << Thread.new{load_poke(p['url'])}}
-  thread.each(&:join)
+  #thread = []
+  #pokes_list['results'].map{|p| thread << Thread.new{load_poke(p['url'])}}
+  #thread.each(&:join)
 
-  if verbose==1
+  #load each poke into the db
+  pokes_list['results'].map{|p| load_poke(p['url'])}
+
+  if VERBOSE==1
     pokenum = pokes_list['next'].split('=')[1].to_i
-    print 'Pokemon' + (pokenum+1).to_s + ' to ' + (pokenum+20).to_s + ': '
+    print "\nPokemon " + (pokenum+1).to_s + ' to ' + (pokenum+20).to_s + ': '
   end
 
   response = RestClient.get(pokes_list['next']) 
   pokes_list = JSON.parse(response) if response
 end
+
+#destroy pokes that weren't loaded in the last day
+Poke.where('updated_at < ?', Time.now.yesterday).map(&:destroy)
