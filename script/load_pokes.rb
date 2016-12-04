@@ -17,7 +17,7 @@ def load_poke url
       weight: output['weight'],
       order: output['order'])
   end
-  print 'p' + output['id'].to_s + ' '
+  print 'p' + output['id'].to_s + ' ' if VERBOSE==1
 end
 
 #begin loading data
@@ -25,7 +25,7 @@ response = RestClient.get('http://pokeapi.co/api/v2/pokemon/')
 pokes_list = JSON.parse(response)
 
 puts 'Loading ' + pokes_list['count'].to_s + ' Pokemon...' if VERBOSE==1
-print 'Pokemon 1 to 20: '  if VERBOSE==1
+print 'Pokemon 1 to 20: ' if VERBOSE==1
 
 while(response) do
   ## threaded loads don't work because the database can't handle that many calls at once
