@@ -43,8 +43,8 @@ while(response) do
     print "\nPokemon " + (pokenum+1).to_s + ' to ' + (pokenum+20).to_s + ': '
   end
 
-  response = RestClient.get(pokes_list['next']) 
-  pokes_list = JSON.parse(response) if response
+  response = (pokes_list['next'] ? RestClient.get(pokes_list['next']) : nil)
+  pokes_list = JSON.parse(response)
 end
 
 #destroy pokes that weren't loaded in the last day
