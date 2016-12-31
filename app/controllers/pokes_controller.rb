@@ -24,41 +24,41 @@ class PokesController < ApplicationController
   # POST /pokes
   # POST /pokes.json
   def create
-#    @poke = Poke.new(poke_params)
-#
-#    respond_to do |format|
-#      if @poke.save
-#        format.html { redirect_to @poke, notice: 'Poke was successfully created.' }
-#        format.json { render :show, status: :created, location: @poke }
-#      else
-#        format.html { render :new }
-#        format.json { render json: @poke.errors, status: :unprocessable_entity }
-#      end
-#    end
+    @poke = Poke.new(poke_params)
+
+    respond_to do |format|
+      if @poke.save
+        format.html { redirect_to @poke, notice: 'Poke was successfully created.' }
+        format.json { render :show, status: :created, location: @poke }
+      else
+        format.html { render :new }
+        format.json { render json: @poke.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /pokes/1
   # PATCH/PUT /pokes/1.json
   def update
-#    respond_to do |format|
-#      if @poke.update(poke_params)
-#        format.html { redirect_to @poke, notice: 'Poke was successfully updated.' }
-#        format.json { render :show, status: :ok, location: @poke }
-#      else
-#        format.html { render :edit }
-#        format.json { render json: @poke.errors, status: :unprocessable_entity }
-#      end
-#    end
+    respond_to do |format|
+      if @poke.update(poke_params)
+        format.html { redirect_to @poke, notice: 'Poke was successfully updated.' }
+        format.json { render :show, status: :ok, location: @poke }
+      else
+        format.html { render :edit }
+        format.json { render json: @poke.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /pokes/1
   # DELETE /pokes/1.json
   def destroy
-#    @poke.destroy
-#    respond_to do |format|
-#      format.html { redirect_to pokes_url, notice: 'Poke was successfully destroyed.' }
-#      format.json { head :no_content }
-#    end
+    @poke.destroy
+    respond_to do |format|
+      format.html { redirect_to pokes_url, notice: 'Poke was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
