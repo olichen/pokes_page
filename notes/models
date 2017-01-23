@@ -1,0 +1,16 @@
+Poke -- Ability
+Poke >< Move
+Poke -- Types
+
+Nature
+Item
+EVs/IVs
+
+Poke
+Name, Ability, Moves, Weight, Order, Base Stats, Image, Type1, Type2, Evolutions?
+
+Ability
+Desc, calc code?
+
+Move
+Name, BP, Acc, Type1, Type2
