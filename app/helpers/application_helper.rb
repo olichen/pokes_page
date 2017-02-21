@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def page_title(title = '')
-    base_title = 'Pokemon Data Analysis'
+    base_title = 'Pokemon Usage Statistics'
     if title.empty?
       return base_title
     else

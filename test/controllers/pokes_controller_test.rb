@@ -8,7 +8,6 @@ class PokesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get pokes_url
     assert_response :success
-    assert_select "title", "Pokemon Index | Pokemon Data Analysis"
   end
 
   test "should get new" do
