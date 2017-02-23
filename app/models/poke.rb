@@ -1,5 +1,5 @@
 class Poke < ApplicationRecord
-  validates :name,      presence: true
+  validates :name,      presence: true, uniqueness: true
   validates :weight,    presence: true
-  validates :order,     presence: true
+  validates :order,     uniqueness: true
 end
