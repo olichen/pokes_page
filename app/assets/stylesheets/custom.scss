@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//// navbar
+// slim it down
 .navbar-nav > li > a, .navbar-brand {
   padding: 8px 8px;
   height: 36px;
@@ -11,7 +13,17 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
-
 .navbar {
   min-height: 36px;
+}
+
+//// tables
+// remove ugly sort button
+table.datatable thead {
+  th.sorting:after, th.sorting_asc:after, th.sorting_desc:after {
+    content: none;
+  }
+}
+table.datatable thead th {
+  //background-image: none !important;
 }

@@ -1,2 +1,3 @@
+#
 $ ->
-  $('.datatable').DataTable({})
+  $('.datatable').DataTable() # jesus it's so ugly
