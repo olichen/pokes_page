@@ -1,0 +1,2 @@
+class DataSmogon < ApplicationRecord
+end

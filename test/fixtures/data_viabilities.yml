@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numplayers: 1
+  gxe_top: 1
+  gxe_99: 1
+  gxe_95: 1
+  data_poke: one
+
+two:
+  numplayers: 1
+  gxe_top: 1
+  gxe_99: 1
+  gxe_95: 1
+  data_poke: two

@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909141252) do
+ActiveRecord::Schema.define(version: 20170224015937) do
+
+  create_table "data_pokes", force: :cascade do |t|
+    t.integer  "poke_id"
+    t.integer  "count"
+    t.float    "usage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poke_id"], name: "index_data_pokes_on_poke_id"
+  end
+
+  create_table "data_smogons", force: :cascade do |t|
+    t.float    "cutoff"
+    t.float    "cutoff_deviation"
+    t.string   "metagame"
+    t.integer  "num_battles"
+    t.date     "month"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "data_viabilities", force: :cascade do |t|
+    t.integer  "numplayers"
+    t.integer  "gxe_top"
+    t.integer  "gxe_99"
+    t.integer  "gxe_95"
+    t.integer  "data_poke_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["data_poke_id"], name: "index_data_viabilities_on_data_poke_id"
+  end
 
   create_table "pokes", force: :cascade do |t|
     t.string   "name"

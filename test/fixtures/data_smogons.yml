@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cutoff: 1.5
+  cutoff_deviation: 1.5
+  metagame: MyString
+  num_battles: 1
+  month: 2017-02-23
+
+two:
+  cutoff: 1.5
+  cutoff_deviation: 1.5
+  metagame: MyString
+  num_battles: 1
+  month: 2017-02-23
