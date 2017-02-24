@@ -6,7 +6,7 @@ gem 'json'
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'haml-rails', '~> 0.9'
-gem 'bootstrap-table-rails'
+gem 'jquery-datatables-rails'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'puma', '~> 3.0'
