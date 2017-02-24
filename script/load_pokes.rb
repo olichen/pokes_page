@@ -1,5 +1,6 @@
 require 'json'
 require 'rest-client'
+require 'open-uri'
 
 VERBOSE=1
 
@@ -19,6 +20,14 @@ def load_poke url
   end
   print 'p' + output['id'].to_s + ' ' if VERBOSE==1
 end
+
+#def download_image url, filename
+#  open(url) do |f|
+#    File.open('../app/assets/images/' + filename, 'wb') do |file|
+#      file.puts f.read
+#    end
+#  end
+#end
 
 #begin loading data
 response = RestClient.get('http://pokeapi.co/api/v2/pokemon/')
