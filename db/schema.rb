@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224015937) do
+ActiveRecord::Schema.define(version: 20170224025532) do
+
+  create_table "abilities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "data_pokes", force: :cascade do |t|
     t.integer  "poke_id"
@@ -42,10 +48,36 @@ ActiveRecord::Schema.define(version: 20170224015937) do
     t.index ["data_poke_id"], name: "index_data_viabilities_on_data_poke_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "moves", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "natures", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "increased_stat_id"
+    t.integer  "decreased_stat_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "pokes", force: :cascade do |t|
     t.string   "name"
     t.integer  "weight"
     t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
