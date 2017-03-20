@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224025532) do
+ActiveRecord::Schema.define(version: 20170225080833) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
@@ -22,19 +22,20 @@ ActiveRecord::Schema.define(version: 20170224025532) do
     t.integer  "poke_id"
     t.integer  "count"
     t.float    "usage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "data_smogon_id"
+    t.index ["data_smogon_id"], name: "index_data_pokes_on_data_smogon_id"
     t.index ["poke_id"], name: "index_data_pokes_on_poke_id"
   end
 
   create_table "data_smogons", force: :cascade do |t|
     t.float    "cutoff"
-    t.float    "cutoff_deviation"
     t.string   "metagame"
     t.integer  "num_battles"
     t.date     "month"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "data_viabilities", force: :cascade do |t|

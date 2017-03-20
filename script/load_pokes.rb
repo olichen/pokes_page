@@ -33,7 +33,7 @@ end
 response = RestClient.get('http://pokeapi.co/api/v2/pokemon/')
 pokes_list = JSON.parse(response)
 
-puts 'Loading ' + pokes_list['count'].to_s + ' Pokemon...' if VERBOSE==1
+print 'Loading ' + pokes_list['count'].to_s + " Pokemon...\n" if VERBOSE==1
 print 'Pokemon 1 to 20: ' if VERBOSE==1
 
 while(response) do
