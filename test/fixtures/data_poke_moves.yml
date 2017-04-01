@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  move: one
+  data_poke: one
+  usage: 1.5
+
+two:
+  move: two
+  data_poke: two
+  usage: 1.5

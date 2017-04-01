@@ -10,12 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225080833) do
+ActiveRecord::Schema.define(version: 20170320214629) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "data_poke_abilities", force: :cascade do |t|
+    t.integer  "ability_id"
+    t.integer  "data_poke_id"
+    t.float    "usage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["ability_id"], name: "index_data_poke_abilities_on_ability_id"
+    t.index ["data_poke_id"], name: "index_data_poke_abilities_on_data_poke_id"
+  end
+
+  create_table "data_poke_items", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "data_poke_id"
+    t.float    "usage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["data_poke_id"], name: "index_data_poke_items_on_data_poke_id"
+    t.index ["item_id"], name: "index_data_poke_items_on_item_id"
+  end
+
+  create_table "data_poke_moves", force: :cascade do |t|
+    t.integer  "move_id"
+    t.integer  "data_poke_id"
+    t.float    "usage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["data_poke_id"], name: "index_data_poke_moves_on_data_poke_id"
+    t.index ["move_id"], name: "index_data_poke_moves_on_move_id"
+  end
+
+  create_table "data_poke_teammates", force: :cascade do |t|
+    t.integer  "poke_id"
+    t.integer  "data_poke_id"
+    t.float    "usage"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["data_poke_id"], name: "index_data_poke_teammates_on_data_poke_id"
+    t.index ["poke_id"], name: "index_data_poke_teammates_on_poke_id"
   end
 
   create_table "data_pokes", force: :cascade do |t|
